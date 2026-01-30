@@ -56,8 +56,10 @@ export const Contact = () => {
                 podemos ayudarte?.
               </p>
               <p className="text-slate-600 md:text-blue-100 dark:text-slate-300 text-lg mb-8 leading-relaxed animate-slide-up delay-100">
-                Contáctanos hoy mismo para un presupuesto sin cargo. Respondemos
-                a la brevedad.
+                Contáctanos hoy mismo para un presupuesto sin cargo.{" "}
+                <span className="animate-pulse font-semibold text-blue-600 md:text-white dark:text-blue-400">
+                  Respondemos a la brevedad.
+                </span>
               </p>
 
               <div className="space-y-4 animate-slide-up delay-200">
@@ -108,7 +110,7 @@ export const Contact = () => {
                       Zona de Cobertura
                     </p>
                     <p className="font-bold text-lg text-slate-900 dark:text-white md:text-white truncate">
-                      Buenos Aires (Zona Sur/Capital)
+                      Buenos Aires (Zona Oeste/Capital)
                     </p>
                   </div>
                 </div>
@@ -130,12 +132,12 @@ export const Contact = () => {
                     required
                     value={formData.nombre}
                     onChange={handleChange}
-                    className="w-full px-6 py-3 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all"
-                    placeholder="Tu nombre"
+                    className="w-full px-6 py-4 rounded-full bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-800 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all duration-300 placeholder:text-slate-400"
+                    placeholder="Tu nombre completo"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1 pl-4">
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2 pl-4">
                     Teléfono
                   </label>
                   <input
@@ -144,12 +146,12 @@ export const Contact = () => {
                     required
                     value={formData.telefono}
                     onChange={handleChange}
-                    className="w-full px-6 py-3 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all"
-                    placeholder="Tu teléfono"
+                    className="w-full px-6 py-4 rounded-full bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-800 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all duration-300 placeholder:text-slate-400"
+                    placeholder="Ej: 11 1234-5678"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1 pl-4">
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2 pl-4">
                     Consulta
                   </label>
                   <textarea
@@ -157,13 +159,13 @@ export const Contact = () => {
                     name="mensaje"
                     value={formData.mensaje}
                     onChange={handleChange}
-                    className="w-full px-6 py-3 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all resize-none"
+                    className="w-full px-6 py-4 rounded-3xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-800 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all duration-300 resize-none placeholder:text-slate-400"
                     placeholder="¿En qué puedo ayudarte?"
                   ></textarea>
                 </div>
                 <button
                   type="submit"
-                  className="w-full py-4 bg-slate-900 dark:bg-blue-600 hover:bg-slate-800 dark:hover:bg-blue-500 text-white rounded-full font-bold transition-colors flex items-center justify-center gap-2 group shadow-lg hover:shadow-xl"
+                  className="w-full py-4 bg-slate-900 dark:bg-blue-600 hover:bg-slate-800 dark:hover:bg-blue-500 text-white rounded-full font-bold transition-colors flex items-center justify-center gap-2 group shadow-lg hover:shadow-xl cursor-pointer"
                 >
                   Enviar WhatsApp
                   <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

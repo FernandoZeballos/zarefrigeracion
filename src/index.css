@@ -39,6 +39,19 @@
   }
 }
 
+@keyframes shine {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+.animate-shine {
+  animation: shine 8s linear infinite;
+}
+
 .animate-fade-in {
   animation: fadeIn 0.8s ease-out forwards;
 }
@@ -266,6 +279,9 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   * {
     @apply border-border outline-ring/50;
   }

@@ -69,12 +69,12 @@ export const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group p-8 bg-white dark:bg-slate-800 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-slate-700 hover:-translate-y-1 cursor-pointer"
+              className="group p-8 bg-white dark:bg-slate-800 rounded-3xl shadow-sm hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 border border-slate-100 dark:border-slate-700 hover:border-blue-100 dark:hover:border-slate-600 hover:-translate-y-2 cursor-pointer active:scale-95"
               onClick={() => {
                 setSelectedService(service);
               }}
             >
-              <div className="mb-6 bg-slate-100 dark:bg-slate-900/50 p-4 rounded-2xl w-fit group-hover:scale-110 transition-transform">
+              <div className="mb-6 bg-slate-50 dark:bg-slate-900/50 p-4 rounded-2xl w-fit group-hover:scale-110 group-hover:rotate-6 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/40 transition-all duration-300 shadow-sm group-hover:shadow-md">
                 {service.icon}
               </div>
               <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
@@ -83,7 +83,7 @@ export const Services = () => {
               <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
                 {service.description}
               </p>
-              <button className="flex items-center text-blue-600 dark:text-blue-400 font-semibold group-hover:translate-x-2 transition-transform">
+              <button className="flex items-center text-blue-600 dark:text-blue-400 font-semibold group-hover:translate-x-2 transition-transform cursor-pointer animate-pulse">
                 Más detalles <ArrowRight className="w-4 h-4 ml-2" />
               </button>
             </div>
@@ -93,7 +93,12 @@ export const Services = () => {
 
       {/* Modal */}
       {selectedService && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
+          onClick={() => {
+            setSelectedService(null);
+          }}
+        >
           <div
             className="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl max-w-lg md:max-w-2xl w-full p-5 md:p-10 relative animate-in zoom-in-95 duration-200 border border-slate-200 dark:border-slate-800 max-h-[90vh] flex flex-col"
             onClick={(e) => {
@@ -104,7 +109,7 @@ export const Services = () => {
               onClick={() => {
                 setSelectedService(null);
               }}
-              className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors z-10"
+              className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors z-10 cursor-pointer"
             >
               <X className="w-6 h-6" />
             </button>
@@ -134,7 +139,7 @@ export const Services = () => {
               onClick={() => {
                 setSelectedService(null);
               }}
-              className="w-full py-3.5 md:py-4 bg-slate-900 dark:bg-blue-600 hover:bg-slate-800 dark:hover:bg-blue-500 text-white rounded-xl font-bold transition-colors text-base md:text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transform shrink-0"
+              className="w-full py-3.5 md:py-4 bg-slate-900 dark:bg-blue-600 hover:bg-slate-800 dark:hover:bg-blue-500 text-white rounded-xl font-bold transition-colors text-base md:text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transform shrink-0 cursor-pointer"
             >
               Entendido
             </button>

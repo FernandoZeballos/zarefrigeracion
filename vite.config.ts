@@ -9,9 +9,9 @@ import checker from "vite-plugin-checker";
 export default defineConfig({
   plugins: [
     tsconfigPaths(),
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+
     { enforce: "pre", ...mdx() },
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+
     react({ include: /\.(mdx|js|jsx|ts|tsx)$/ }),
     tailwindcss(),
     checker({ typescript: true }),
