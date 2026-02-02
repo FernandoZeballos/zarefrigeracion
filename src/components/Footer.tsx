@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { UserPlus, X } from "lucide-react";
+import { openWhatsApp, getContactInfo } from "@/utils/contact";
 
 export const Footer = () => {
+  const { qrUrl } = getContactInfo();
   const [showModal, setShowModal] = useState(false);
   return (
     <footer className="bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 pt-16 pb-8">
@@ -31,7 +33,7 @@ export const Footer = () => {
                   title="Click para ver opciones de contacto"
                 >
                   <img
-                    src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=BEGIN%3AVCARD%0AVERSION%3A3.0%0AN%3AZeballos%3BAdrian%3B%3B%3B%0AFN%3AAdrian%20Zeballos%0AORG%3AZ.A.%20Refrigeracion%0ATEL%3BTYPE%3DCELL%3A%2B5491137046458%0AEMAIL%3Az.arefrigeracion%40gmail.com%0AEND%3AVCARD"
+                    src={qrUrl}
                     alt="Escanear para agregar contacto"
                     className="w-32 h-32"
                   />
@@ -94,14 +96,14 @@ export const Footer = () => {
             </p>
 
             <div className="space-y-3">
-              <a
-                href="https://wa.me/5491137046458?text=Hola%20Z.A.%20Refrigeraci%C3%B3n!%20Les%20escribo%20para%20agendar%20su%20contacto%20y%20tenerlos%20a%20mano%20para%20futuros%20trabajos."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full py-3.5 bg-green-500 hover:bg-green-600 text-white rounded-xl font-bold transition-all shadow-lg hover:shadow-green-500/25 flex items-center justify-center gap-2 active:scale-95"
+              <button
                 onClick={() => {
+                  openWhatsApp(
+                    "Hola Z.A. Refrigeración! Les escribo para agendar su contacto y tenerlos a mano para futuros trabajos.",
+                  );
                   setShowModal(false);
                 }}
+                className="w-full py-3.5 bg-green-500 hover:bg-green-600 text-white rounded-xl font-bold transition-all shadow-lg hover:shadow-green-500/25 flex items-center justify-center gap-2 active:scale-95"
               >
                 <img
                   src="/whatsapp.png"
@@ -109,7 +111,7 @@ export const Footer = () => {
                   className="w-6 h-6 invert brightness-0"
                 />
                 Ir al chat de WhatsApp
-              </a>
+              </button>
               <button
                 onClick={() => {
                   setShowModal(false);

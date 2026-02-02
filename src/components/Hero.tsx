@@ -37,7 +37,7 @@ export const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
               href="#contacto"
-              className="px-8 py-4 bg-[linear-gradient(110deg,#2563eb,45%,#60a5fa,55%,#2563eb)] bg-[length:200%_100%] animate-shine text-white rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-blue-500/50 hover:scale-105 active:scale-95 w-full sm:w-auto flex items-center justify-center gap-2 animate-slide-up delay-200"
+              className="px-8 py-4 bg-[linear-gradient(110deg,#2563eb,45%,#60a5fa,55%,#2563eb)] bg-size-[200%_100%] animate-shine text-white rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-blue-500/50 hover:scale-105 active:scale-95 w-full sm:w-auto flex items-center justify-center gap-2 animate-slide-up delay-200"
             >
               <Clock className="w-5 h-5 animate-pulse" />
               Solicitar Presupuesto

@@ -1,6 +1,7 @@
 import { Menu, X, Phone } from "lucide-react";
 import { useState } from "react";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { openPhone, openWhatsApp } from "@/utils/contact";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,13 +36,13 @@ export const Navbar = () => {
             </a>
             <div className="flex items-center gap-4">
               <ThemeToggle />
-              <a
-                href="tel:+5491137046458"
-                className="hidden lg:flex items-center gap-2 text-slate-600 dark:text-slate-300 hover:text-blue-600 font-medium bg-slate-100 dark:bg-slate-800 px-4 py-2 rounded-full transition-all hover:scale-105 active:scale-95"
+              <button
+                onClick={openPhone}
+                className="hidden lg:flex items-center gap-2 text-slate-600 dark:text-slate-300 hover:text-blue-600 font-medium bg-slate-100 dark:bg-slate-800 px-4 py-2 rounded-full transition-all hover:scale-105 active:scale-95 cursor-pointer"
               >
                 <Phone className="w-4 h-4 animate-pulse text-blue-600" />
-                <span>11 3704-6458</span>
-              </a>
+                <span>Llamar ahora</span>
+              </button>
               <a
                 href="#contacto"
                 className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-medium transition-all hover:scale-105 active:scale-95 shadow-lg hover:shadow-blue-500/25"
@@ -87,21 +88,21 @@ export const Navbar = () => {
             >
               Servicios
             </a>
-            <a
-              href="tel:+5491137046458"
-              className="block px-4 py-3 rounded-xl text-slate-600 dark:text-slate-300 hover:text-blue-600 font-medium hover:bg-slate-50 dark:hover:bg-slate-800 active:scale-95 duration-200"
+            <button
+              onClick={openPhone}
+              className="w-full text-left px-4 py-3 rounded-xl text-slate-600 dark:text-slate-300 hover:text-blue-600 font-medium hover:bg-slate-50 dark:hover:bg-slate-800 active:scale-95 duration-200"
             >
               📞 Llamar ahora
-            </a>
-            <a
-              href="https://wa.me/5491137046458"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-3 rounded-xl text-green-600 font-medium hover:bg-green-50 dark:hover:bg-green-900/20 active:scale-95 duration-200"
+            </button>
+            <button
+              onClick={() => {
+                openWhatsApp();
+              }}
+              className="w-full flex items-center gap-2 px-4 py-3 rounded-xl text-green-600 font-medium hover:bg-green-50 dark:hover:bg-green-900/20 active:scale-95 duration-200"
             >
               <img src="/whatsapp.png" alt="WhatsApp" className="w-5 h-5" />
               WhatsApp
-            </a>
+            </button>
             <a
               href="#contacto"
               className="block px-4 py-3 rounded-xl text-blue-600 font-bold bg-blue-50 dark:bg-blue-900/20 hover:bg-blue-100 dark:hover:bg-blue-900/40 active:scale-95 duration-200 mt-2"

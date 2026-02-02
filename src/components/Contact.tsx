@@ -1,5 +1,6 @@
 import { MapPinned, Send, Smartphone } from "lucide-react";
 import { useState, type FormEvent } from "react";
+import { openPhone, openWhatsApp } from "@/utils/contact";
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -23,10 +24,9 @@ export const Contact = () => {
     const text = `Hola *Z.A.Refrigeracion*!\n\nMi nombre es: *${nombre}*\nMi teléfono: *${telefono}*\n\nConsulta:\n${mensaje}${origen}`;
 
     // Redirigir a WhatsApp
-    window.open(
-      `https://wa.me/5491137046458?text=${encodeURIComponent(text)}`,
-      "_blank",
-    );
+
+    // Redirigir a WhatsApp
+    openWhatsApp(text);
   };
 
   const handleChange = (
@@ -63,11 +63,11 @@ export const Contact = () => {
               </p>
 
               <div className="space-y-4 animate-slide-up delay-200">
-                <a
-                  href="https://wa.me/5491137046458"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 bg-white dark:bg-slate-800 md:bg-white/10 hover:bg-slate-50 dark:hover:bg-slate-700 md:hover:bg-white/20 rounded-full transition-colors shadow-sm md:shadow-none md:backdrop-blur-sm group border border-slate-100 dark:border-slate-700 md:border-transparent"
+                <button
+                  onClick={() => {
+                    openWhatsApp();
+                  }}
+                  className="flex w-full items-center gap-4 p-4 bg-white dark:bg-slate-800 md:bg-white/10 hover:bg-slate-50 dark:hover:bg-slate-700 md:hover:bg-white/20 rounded-full transition-colors shadow-sm md:shadow-none md:backdrop-blur-sm group border border-slate-100 dark:border-slate-700 md:border-transparent text-left cursor-pointer"
                 >
                   <img
                     src="/whatsapp.png"
@@ -79,16 +79,16 @@ export const Contact = () => {
                       WhatsApp Directo
                     </p>
                     <p className="font-bold text-lg text-slate-900 dark:text-white md:text-white truncate">
-                      +54 9 11 3704-6458
+                      Chat de WhatsApp
                     </p>
                   </div>
-                </a>
+                </button>
 
-                <a
-                  href="tel:+5491137046458"
-                  className="flex items-center gap-4 p-4 bg-white dark:bg-slate-800 md:bg-white/10 hover:bg-slate-50 dark:hover:bg-slate-700 md:hover:bg-white/20 rounded-full transition-colors shadow-sm md:shadow-none md:backdrop-blur-sm group border border-slate-100 dark:border-slate-700 md:border-transparent"
+                <button
+                  onClick={openPhone}
+                  className="w-full flex items-center gap-4 p-4 bg-white dark:bg-slate-800 md:bg-white/10 hover:bg-slate-50 dark:hover:bg-slate-700 md:hover:bg-white/20 rounded-full transition-colors shadow-sm md:shadow-none md:backdrop-blur-sm group border border-slate-100 dark:border-slate-700 md:border-transparent text-left cursor-pointer"
                 >
-                  <div className="bg-blue-500/10 p-3 rounded-full group-hover:bg-blue-500 transition-colors shrink-0">
+                  <div className="bg-blue-500/10 md:bg-white p-3 rounded-full group-hover:bg-blue-500 transition-colors shrink-0">
                     <Smartphone className="w-6 h-6 text-blue-600 group-hover:text-white transition-colors" />
                   </div>
                   <div className="min-w-0">
@@ -96,10 +96,10 @@ export const Contact = () => {
                       Llamada Telefónica
                     </p>
                     <p className="font-bold text-lg text-slate-900 dark:text-white md:text-white truncate">
-                      11 3704-6458
+                      Llamar ahora
                     </p>
                   </div>
-                </a>
+                </button>
 
                 <div className="flex items-center gap-4 p-4 bg-white dark:bg-slate-800 md:bg-white/10 rounded-full md:backdrop-blur-sm border border-slate-100 dark:border-slate-700 md:border-transparent shadow-sm md:shadow-none">
                   <div className="bg-indigo-500/10 p-3 rounded-full shrink-0">
@@ -110,7 +110,7 @@ export const Contact = () => {
                       Zona de Cobertura
                     </p>
                     <p className="font-bold text-lg text-slate-900 dark:text-white md:text-white truncate">
-                      Buenos Aires (Zona Oeste/Capital)
+                      CABA y GBA Zona Oeste
                     </p>
                   </div>
                 </div>
