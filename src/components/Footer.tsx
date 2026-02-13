@@ -14,7 +14,7 @@ export const Footer = () => {
             className="h-32 flex items-center cursor-pointer transition-transform hover:scale-105"
           >
             <img
-              src="/logo.jpeg"
+              src="/LogoA.jpeg"
               alt="Z.A. Refrigeración"
               className="h-full w-auto object-contain mix-blend-multiply dark:mix-blend-screen dark:invert dark:hue-rotate-180 dark:brightness-110 contrast-125"
             />

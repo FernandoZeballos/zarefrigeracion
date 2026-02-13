@@ -4,12 +4,9 @@ export const MouseBackground = () => {
   const blobRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
+    // Function to update position
+    const updatePosition = (x: number, y: number) => {
       if (!blobRef.current) return;
-
-      const x = e.clientX;
-      const y = e.clientY;
-
       blobRef.current.animate(
         {
           transform: `translate(${String(x)}px, ${String(y)}px)`,
@@ -21,9 +18,28 @@ export const MouseBackground = () => {
       );
     };
 
+    // Initialize at center
+    if (blobRef.current) {
+      const x = window.innerWidth / 2;
+      const y = window.innerHeight / 2;
+      updatePosition(x, y);
+    }
+
+    const handleMouseMove = (e: MouseEvent) => {
+      updatePosition(e.clientX, e.clientY);
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      const touch = e.touches[0];
+      updatePosition(touch.clientX, touch.clientY);
+    };
+
     window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("touchmove", handleTouchMove);
+
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("touchmove", handleTouchMove);
     };
   }, []);
 
