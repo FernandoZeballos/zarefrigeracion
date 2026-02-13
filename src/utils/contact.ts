@@ -5,19 +5,22 @@ export const getContactInfo = () => {
     c: "54",
     a: "9",
     area: "11",
-    p1: "3704",
-    p2: "6458",
+    p1: "6143",
+    p2: "2681",
   };
 
   const phoneNumber = `${parts.c}${parts.a}${parts.area}${parts.p1}${parts.p2}`;
+  const whatsappUrl = `https://wa.me/${phoneNumber}`;
+  const qrMessage =
+    "Hola Z.A. Refrigeración, escaneé el código QR y quisiera hacer una consulta.";
+  const whatsappQrUrl = `${whatsappUrl}?text=${encodeURIComponent(qrMessage)}`;
 
-  // QR Code Generation URL (using native API but hiding the source in code slightly)
-  const vCard = `BEGIN:VCARD\nVERSION:3.0\nN:Zeballos;Adrian;;;\nFN:Adrian Zeballos\nORG:Z.A. Refrigeracion\nTEL;TYPE=CELL:+${phoneNumber}\nEMAIL:z.arefrigeracion@gmail.com\nEND:VCARD`;
-  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(vCard)}`;
+  // QR Code Generation URL (points directly to WhatsApp with message)
+  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(whatsappQrUrl)}`;
 
   return {
     phone: phoneNumber,
-    whatsappUrl: `https://wa.me/${phoneNumber}`,
+    whatsappUrl,
     telUrl: `tel:+${phoneNumber}`,
     qrUrl,
   };

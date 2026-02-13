@@ -15,7 +15,7 @@ export const Navbar = () => {
             className="h-24 flex items-center cursor-pointer transition-transform hover:scale-105"
           >
             <img
-              src="/logo.jpg"
+              src="/logo.jpeg"
               alt="Z.A. Refrigeración"
               className="h-full w-auto object-contain mix-blend-multiply dark:mix-blend-screen dark:invert dark:hue-rotate-180 dark:brightness-110 contrast-125"
             />
