@@ -25,14 +25,15 @@ export const Hero = () => {
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-linear-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-300 tracking-tight mb-7 pb-6 animate-fade-in">
-            Climatización Perfecta para tu Hogar
+            Instalación y Servicio Técnico de Aire Acondicionado
           </h1>
 
-          <p className="text-xl text-slate-600 dark:text-slate-400 mb-10 leading-relaxed animate-fade-in delay-100">
-            Instalación, mantenimiento y reparación de aire acondicionado.
-            Servicio profesional, rápido y garantizado para que disfrutes del
-            máximo confort.
-          </p>
+          <h2 className="text-xl text-slate-600 dark:text-slate-400 mb-10 leading-relaxed animate-fade-in delay-100">
+            Expertos en <strong>mantenimiento, reparación e instalación</strong>{" "}
+            de equipos Split y Centrales. Servicio profesional, rápido y
+            garantizado en <strong>CABA y Zona Oeste</strong> para el máximo
+            confort de tu hogar o empresa.
+          </h2>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a

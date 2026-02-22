@@ -53,7 +53,7 @@ export const Services = () => {
   >(null);
 
   return (
-    <div id="servicios" className="py-20 dark:bg-slate-900/50">
+    <div id="servicios" className="py-20 dark:bg-slate-900/50 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
@@ -69,12 +69,12 @@ export const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group p-8 bg-white dark:bg-slate-800 rounded-3xl shadow-sm hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 border border-slate-100 dark:border-slate-700 hover:border-blue-100 dark:hover:border-slate-600 hover:-translate-y-2 cursor-pointer active:scale-95"
+              className="group p-8 bg-white dark:bg-slate-800 rounded-3xl shadow-sm hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 ease-out border border-slate-100 dark:border-slate-700 hover:border-blue-200 dark:hover:border-slate-600 hover:-translate-y-3 cursor-pointer active:scale-95"
               onClick={() => {
                 setSelectedService(service);
               }}
             >
-              <div className="mb-6 bg-slate-50 dark:bg-slate-900/50 p-4 rounded-2xl w-fit group-hover:scale-110 group-hover:rotate-6 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/40 transition-all duration-300 shadow-sm group-hover:shadow-md">
+              <div className="mb-6 bg-slate-50 dark:bg-slate-900/50 p-4 rounded-2xl w-fit group-hover:scale-110 group-hover:-rotate-3 group-hover:bg-blue-50 dark:group-hover:bg-blue-900/40 transition-all duration-500 shadow-sm group-hover:shadow-md">
                 {service.icon}
               </div>
               <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">

@@ -43,12 +43,17 @@ export const Footer = () => {
                 (Haz click en el QR)
               </p>
             </div>
-            <div className="text-slate-500 dark:text-slate-400 text-sm text-center md:text-right">
-              <p>
-                © {new Date().getFullYear()} Z.A.Refrigeracion. Todos los
+            <div className="text-slate-500 dark:text-slate-400 text-sm text-center md:text-right space-y-1">
+              <p className="font-semibold text-slate-800 dark:text-slate-200">
+                Z.A. Refrigeración
+              </p>
+              <p>Área de servicio: Buenos Aires (CABA, Zona Oeste y GBA)</p>
+              <p>Tel: +54 9 11 6143-2681</p>
+              <p className="mt-4 pt-2 border-t border-slate-200 dark:border-slate-800">
+                © {new Date().getFullYear()} Z.A. Refrigeración. Todos los
                 derechos reservados.
               </p>
-              <p className="mt-1">Servicio técnico matriculado.</p>
+              <p>Servicio técnico matriculado de aire acondicionado.</p>
             </div>
           </div>
         </div>

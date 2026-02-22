@@ -39,26 +39,29 @@ export const Contact = () => {
   };
 
   return (
-    <div id="contacto" className="py-12 md:py-20 relative overflow-hidden">
+    <div
+      id="contacto"
+      className="py-12 md:py-20 relative overflow-hidden scroll-mt-20"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="md:bg-blue-600 md:dark:bg-blue-700 md:rounded-[3rem] md:p-16 overflow-hidden relative md:shadow-2xl">
+        <div className="md:bg-blue-50/50 md:dark:bg-slate-800/40 md:backdrop-blur-2xl md:border md:border-blue-200/50 md:dark:border-slate-700/50 md:rounded-[3rem] md:p-16 overflow-hidden relative shadow-lg md:shadow-2xl transition-all">
           {/* Decorative Circles */}
-          <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-blue-500 rounded-full blur-3xl opacity-50 hidden md:block"></div>
-          <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-96 h-96 bg-blue-800 rounded-full blur-3xl opacity-50 hidden md:block"></div>
+          <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-blue-400 rounded-full blur-3xl opacity-20 hidden md:block mix-blend-multiply dark:mix-blend-lighten"></div>
+          <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-96 h-96 bg-cyan-400 rounded-full blur-3xl opacity-20 hidden md:block mix-blend-multiply dark:mix-blend-lighten"></div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center relative z-10">
             <div>
-              <h2 className="text-3xl md:text-5xl font-bold text-slate-900 md:text-white dark:text-white mb-6 animate-slide-up">
-                ¿Necesitas un técnico?
+              <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 animate-slide-up">
+                ¿Necesitas un técnico de Aire Acondicionado?
               </h2>
-              <p className="text-slate-600 md:text-blue-100 dark:text-slate-300 text-lg mb-8 leading-relaxed animate-slide-up delay-100">
-                No dejes que el calor o tambien el frio te ganen, ¿Como nosotros
-                podemos ayudarte?.
+              <p className="text-slate-600 dark:text-slate-300 text-lg mb-8 leading-relaxed animate-slide-up delay-100">
+                Llegamos a tu domicilio con soluciones efectivas y rápidas en
+                refrigeración y climatización.
               </p>
-              <p className="text-slate-600 md:text-blue-100 dark:text-slate-300 text-lg mb-8 leading-relaxed animate-slide-up delay-100">
-                Contáctanos hoy mismo para un presupuesto sin cargo.{" "}
-                <span className="animate-pulse font-semibold text-blue-600 md:text-white dark:text-blue-400">
-                  Respondemos a la brevedad.
+              <p className="text-slate-600 dark:text-slate-300 text-lg mb-8 leading-relaxed animate-slide-up delay-100">
+                Contáctanos hoy mismo para un presupuesto rápido.{" "}
+                <span className="animate-pulse font-semibold text-blue-600 dark:text-blue-400">
+                  Respuesta inmediata garantizada.
                 </span>
               </p>
 
@@ -67,7 +70,7 @@ export const Contact = () => {
                   onClick={() => {
                     openWhatsApp();
                   }}
-                  className="flex w-full items-center gap-4 p-4 bg-white dark:bg-slate-800 md:bg-white/10 hover:bg-slate-50 dark:hover:bg-slate-700 md:hover:bg-white/20 rounded-full transition-colors shadow-sm md:shadow-none md:backdrop-blur-sm group border border-slate-100 dark:border-slate-700 md:border-transparent text-left cursor-pointer"
+                  className="flex w-full items-center gap-4 p-4 bg-white/80 dark:bg-slate-800/80 hover:bg-white dark:hover:bg-slate-700 rounded-full transition-colors shadow-sm backdrop-blur-sm group border border-blue-100 dark:border-slate-700/50 text-left cursor-pointer active:scale-95 hover:shadow-md"
                 >
                   <img
                     src="/whatsapp.png"
@@ -75,10 +78,10 @@ export const Contact = () => {
                     className="w-12 h-12 shrink-0 group-hover:scale-110 transition-transform"
                   />
                   <div className="min-w-0">
-                    <p className="text-sm text-slate-500 dark:text-slate-400 md:text-blue-200 truncate">
+                    <p className="text-sm text-slate-500 dark:text-slate-400 truncate tracking-wide">
                       WhatsApp Directo
                     </p>
-                    <p className="font-bold text-lg text-slate-900 dark:text-white md:text-white truncate">
+                    <p className="font-bold text-lg text-slate-900 dark:text-white truncate">
                       Chat de WhatsApp
                     </p>
                   </div>
@@ -86,38 +89,43 @@ export const Contact = () => {
 
                 <button
                   onClick={openPhone}
-                  className="w-full flex items-center gap-4 p-4 bg-white dark:bg-slate-800 md:bg-white/10 hover:bg-slate-50 dark:hover:bg-slate-700 md:hover:bg-white/20 rounded-full transition-colors shadow-sm md:shadow-none md:backdrop-blur-sm group border border-slate-100 dark:border-slate-700 md:border-transparent text-left cursor-pointer"
+                  className="w-full flex items-center gap-4 p-4 bg-white/80 dark:bg-slate-800/80 hover:bg-white dark:hover:bg-slate-700 rounded-full transition-colors shadow-sm backdrop-blur-sm group border border-blue-100 dark:border-slate-700/50 text-left cursor-pointer active:scale-95 hover:shadow-md"
                 >
-                  <div className="bg-blue-500/10 md:bg-white p-3 rounded-full group-hover:bg-blue-500 transition-colors shrink-0">
+                  <div className="bg-blue-50 dark:bg-slate-900 p-3 rounded-full group-hover:bg-blue-500 transition-colors shrink-0">
                     <Smartphone className="w-6 h-6 text-blue-600 group-hover:text-white transition-colors" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-sm text-slate-500 dark:text-slate-400 md:text-blue-200 truncate">
+                    <p className="text-sm text-slate-500 dark:text-slate-400 truncate tracking-wide">
                       Llamada Telefónica
                     </p>
-                    <p className="font-bold text-lg text-slate-900 dark:text-white md:text-white truncate">
+                    <p className="font-bold text-lg text-slate-900 dark:text-white truncate">
                       Llamar ahora
                     </p>
                   </div>
                 </button>
 
-                <div className="flex items-center gap-4 p-4 bg-white dark:bg-slate-800 md:bg-white/10 rounded-full md:backdrop-blur-sm border border-slate-100 dark:border-slate-700 md:border-transparent shadow-sm md:shadow-none">
-                  <div className="bg-indigo-500/10 p-3 rounded-full shrink-0">
-                    <MapPinned className="w-6 h-6 text-indigo-600 dark:text-indigo-400 md:text-white" />
+                <a
+                  href="https://www.google.com/maps/place/La+Matanza,+Provincia+de+Buenos+Aires"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center gap-4 p-4 bg-white/80 dark:bg-slate-800/80 hover:bg-white dark:hover:bg-slate-700 rounded-full transition-colors shadow-sm backdrop-blur-sm group border border-blue-100 dark:border-slate-700/50 text-left cursor-pointer active:scale-95 hover:shadow-md"
+                >
+                  <div className="bg-indigo-50 dark:bg-slate-900 p-3 rounded-full group-hover:bg-indigo-500 transition-colors shrink-0">
+                    <MapPinned className="w-6 h-6 text-indigo-600 group-hover:text-white transition-colors" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-sm text-slate-500 dark:text-slate-400 md:text-blue-200 truncate">
-                      Zona de Cobertura
+                    <p className="text-sm text-slate-500 dark:text-slate-400 truncate tracking-wide">
+                      Ver mapa de cobertura
                     </p>
-                    <p className="font-bold text-lg text-slate-900 dark:text-white md:text-white truncate">
-                      CABA y GBA Zona Oeste
+                    <p className="font-bold text-lg text-slate-900 dark:text-white truncate">
+                      CABA, Zona Oeste y GBA
                     </p>
                   </div>
-                </div>
+                </a>
               </div>
             </div>
 
-            <div className="md:bg-white md:dark:bg-slate-900 md:p-8 md:rounded-3xl md:shadow-xl">
+            <div className="bg-white md:bg-white/95 dark:bg-slate-900/95 md:backdrop-blur-xl p-8 rounded-3xl shadow-xl border border-white/50 dark:border-slate-700/50 mt-8 md:mt-0 relative">
               <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">
                 Envíame un mensaje
               </h3>
@@ -132,7 +140,7 @@ export const Contact = () => {
                     required
                     value={formData.nombre}
                     onChange={handleChange}
-                    className="w-full px-6 py-4 rounded-full bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-800 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all duration-300 placeholder:text-slate-400"
+                    className="w-full px-6 py-4 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-900 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 outline-none transition-all duration-300 placeholder:text-slate-400 hover:border-slate-300 dark:hover:border-slate-500"
                     placeholder="Tu nombre completo"
                   />
                 </div>
@@ -146,7 +154,7 @@ export const Contact = () => {
                     required
                     value={formData.telefono}
                     onChange={handleChange}
-                    className="w-full px-6 py-4 rounded-full bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-800 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all duration-300 placeholder:text-slate-400"
+                    className="w-full px-6 py-4 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-900 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 outline-none transition-all duration-300 placeholder:text-slate-400 hover:border-slate-300 dark:hover:border-slate-500"
                     placeholder="Ej: 11 1234-5678"
                   />
                 </div>
@@ -159,13 +167,13 @@ export const Contact = () => {
                     name="mensaje"
                     value={formData.mensaje}
                     onChange={handleChange}
-                    className="w-full px-6 py-4 rounded-3xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-800 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all duration-300 resize-none placeholder:text-slate-400"
+                    className="w-full px-6 py-4 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-900 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 outline-none transition-all duration-300 resize-none placeholder:text-slate-400 hover:border-slate-300 dark:hover:border-slate-500"
                     placeholder="¿En qué puedo ayudarte?"
                   ></textarea>
                 </div>
                 <button
                   type="submit"
-                  className="w-full py-4 bg-slate-900 dark:bg-blue-600 hover:bg-slate-800 dark:hover:bg-blue-500 text-white rounded-full font-bold transition-colors flex items-center justify-center gap-2 group shadow-lg hover:shadow-xl cursor-pointer"
+                  className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold transition-all flex items-center justify-center gap-2 group shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 hover:-translate-y-1 active:translate-y-0 cursor-pointer"
                 >
                   Enviar WhatsApp
                   <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

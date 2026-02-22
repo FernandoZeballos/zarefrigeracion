@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { Services } from "@/components/Services";
+import { FAQ } from "@/components/FAQ";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { MouseBackground } from "@/components/MouseBackground";
@@ -13,6 +14,7 @@ function App() {
       <main className="relative z-10">
         <Hero />
         <Services />
+        <FAQ />
         <Contact />
       </main>
       <Footer />

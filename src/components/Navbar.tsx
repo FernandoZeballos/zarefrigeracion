@@ -1,23 +1,42 @@
 import { Menu, X, Phone } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { openPhone, openWhatsApp } from "@/utils/contact";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <nav className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md fixed w-full z-50 border-b border-gray-100 dark:border-slate-800">
+    <nav
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-white/90 dark:bg-slate-900/90 backdrop-blur-md shadow-md border-b border-gray-100 dark:border-slate-800 py-2"
+          : "bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm border-b border-transparent py-4"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-28 items-center">
+        <div
+          className={`flex justify-between items-center transition-all duration-300 ${isScrolled ? "h-16" : "h-24"}`}
+        >
           <a
             href="#inicio"
-            className="h-24 flex items-center cursor-pointer transition-transform hover:scale-105"
+            className="h-full flex items-center cursor-pointer transition-transform hover:scale-105"
           >
             <img
               src="/LogoA.jpeg"
               alt="Z.A. Refrigeración"
-              className="h-full w-auto object-contain mix-blend-multiply dark:mix-blend-screen dark:invert dark:hue-rotate-180 dark:brightness-110 contrast-125"
+              className={`w-auto object-contain mix-blend-multiply dark:mix-blend-screen dark:invert dark:hue-rotate-180 dark:brightness-110 contrast-125 transition-all duration-300 ${isScrolled ? "h-14" : "h-20"}`}
             />
           </a>
 
