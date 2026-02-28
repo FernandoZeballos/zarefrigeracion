@@ -35,7 +35,7 @@ export const Services = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 items-start">
           {SERVICES.map((service) => {
             const isExpanded = selectedService?.id === service.id;
 
