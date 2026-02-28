@@ -58,17 +58,34 @@ export const Footer = () => {
                 (Hacé click en el QR)
               </p>
             </div>
-            <div className="text-slate-500 dark:text-slate-400 text-sm text-center md:text-right space-y-1">
-              <p className="font-semibold text-slate-800 dark:text-slate-200">
-                Z.A. Refrigeración
-              </p>
-              <p>Área de servicio: Buenos Aires (CABA, Zona Oeste y GBA)</p>
-              <p>Tel: +54 9 11 6143-2681</p>
-              <p className="mt-4 pt-2 border-t border-slate-200 dark:border-slate-800">
+            <div className="text-slate-500 dark:text-slate-400 text-sm md:text-right space-y-3 max-w-sm ml-auto">
+              <div>
+                <h2 className="font-bold text-slate-800 dark:text-white mb-2 text-base">
+                  Sobre Z.A. Refrigeración
+                </h2>
+                <p className="leading-relaxed text-pretty">
+                  <strong>Z.A. Refrigeración</strong> es el servicio técnico
+                  oficial especializado en la instalación, carga de gas y
+                  reparación de aires acondicionados. Operamos de forma
+                  exclusiva e inmediata en{" "}
+                  <strong>CABA y Zona Oeste de Buenos Aires</strong>. Todos
+                  nuestros trabajos están garantizados por un Maestro Mayor de
+                  Obra certificado en climatización.
+                </p>
+              </div>
+              <div className="pt-2">
+                <p>
+                  <strong>Teléfono / WhatsApp:</strong> +54 9 11 6143-2681
+                </p>
+                <p>
+                  <strong>Área de cobertura real:</strong> Capital Federal y GBA
+                  Oeste.
+                </p>
+              </div>
+              <p className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800 text-xs">
                 © {new Date().getFullYear()} Z.A. Refrigeración. Todos los
                 derechos reservados.
               </p>
-              <p>Maestro mayor de obra, instalador de aires acondicionados.</p>
             </div>
           </div>
         </div>
