@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { Clock, Snowflake } from "lucide-react";
 import { Canvas } from "@react-three/fiber";
 import {
@@ -18,6 +19,13 @@ const TRUST_BADGES = [
 ] as const;
 
 export const Hero = () => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => setIsMounted(true), 0);
+    return () => clearTimeout(timeoutId);
+  }, []);
+
   return (
     <section
       id="inicio"
@@ -114,40 +122,42 @@ export const Hero = () => {
 
             {/* The 3D Canvas wrapper */}
             <div className="w-full h-full relative cursor-grab active:cursor-grabbing z-10">
-              <Canvas camera={{ position: [0, 0, 7.5], fov: 45 }}>
-                <ambientLight intensity={0.5} />
-                <directionalLight
-                  position={[10, 10, 5]}
-                  intensity={1}
-                  castShadow
-                />
+              {isMounted && (
+                <Canvas camera={{ position: [0, 0, 7.5], fov: 45 }}>
+                  <ambientLight intensity={0.5} />
+                  <directionalLight
+                    position={[10, 10, 5]}
+                    intensity={1}
+                    castShadow
+                  />
 
-                {/* Environment mapping for realistic reflections on the AC case */}
-                <Environment preset="city" />
+                  {/* Environment mapping for realistic reflections on the AC case */}
+                  <Environment preset="city" />
 
-                {/* Float makes the AC slowly bob up and down while rotating slightly */}
-                <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
-                  {/* We pass a slight default rotation so it looks nice on load */}
-                  <AcUnit3D rotation={[0.1, -0.6, 0]} />
-                </Float>
+                  {/* Float makes the AC slowly bob up and down while rotating slightly */}
+                  <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
+                    {/* We pass a slight default rotation so it looks nice on load */}
+                    <AcUnit3D rotation={[0.1, -0.6, 0]} />
+                  </Float>
 
-                {/* Nice soft shadow below the floating unit */}
-                <ContactShadows
-                  position={[0, -2, 0]}
-                  opacity={0.5}
-                  scale={15}
-                  blur={2.5}
-                  far={4}
-                />
+                  {/* Nice soft shadow below the floating unit */}
+                  <ContactShadows
+                    position={[0, -2, 0]}
+                    opacity={0.5}
+                    scale={15}
+                    blur={2.5}
+                    far={4}
+                  />
 
-                {/* Mouse controls! */}
-                <OrbitControls
-                  enableZoom={false}
-                  enablePan={false}
-                  minPolarAngle={Math.PI / 4}
-                  maxPolarAngle={Math.PI / 1.5}
-                />
-              </Canvas>
+                  {/* Mouse controls! */}
+                  <OrbitControls
+                    enableZoom={false}
+                    enablePan={false}
+                    minPolarAngle={Math.PI / 4}
+                    maxPolarAngle={Math.PI / 1.5}
+                  />
+                </Canvas>
+              )}
 
               {/* Floating tech element tooltip for UI blend */}
               <div className="absolute bottom-4 left-4 px-4 py-2 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md text-sm font-bold text-slate-800 dark:text-cyan-300 rounded-xl shadow-xl border border-white/40 dark:border-white/20 pointer-events-none">
