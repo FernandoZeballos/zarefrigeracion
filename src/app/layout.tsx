@@ -4,9 +4,9 @@ import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import "./globals.css";
 export const metadata: Metadata = {
   title:
-    "Z.A. Refrigeración - Servicio Técnico de Aire Acondicionado en Buenos Aires",
+    "Z.A. Refrigeración | Arreglo e Instalación de Aires Acondicionados en el Día",
   description:
-    "Servicio técnico oficial en refrigeración. Instalador de aires acondicionados (Split y Centrales) en Buenos Aires, Zona Oeste y CABA. Atención rápida por maestro mayor de obra.",
+    "❄️ ¿Tu aire no enfría? Servicio técnico Oficial, Instalación y Reparación de Aires Acondicionados en CABA y GBA. Garantía escrita por Maestro Mayor de Obra. ¡Presupuestá por WhatsApp ahora! 🚀",
   keywords: [
     "aire acondicionado",
     "refrigeración",
@@ -26,6 +26,11 @@ export const metadata: Metadata = {
     "instalación de aires acondicionados",
   ],
   authors: [{ name: "Z.A. Refrigeración" }],
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
   robots: "index, follow",
   verification: {
     google: "NhtfirFyAw_j45GPDbawdc_UtaUHkKR634ZSxsXNm8o",
@@ -36,17 +41,17 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://zarefrigeracion.com.ar/",
-    title: "Z.A. Refrigeración - Expertos en Climatización",
+    title: "Z.A. Refrigeración | Expertos en Climatización",
     description:
-      "Maestro mayor de obra, instalador de aires acondicionados. Soluciones rápidas y garantizadas en instalación y reparación para tu hogar o empresa.",
+      "❄️ ¿Tu aire no enfría? Servicio técnico Oficial, Instalación y Reparación de Aires Acondicionados en el día. Garantía escrita por Maestro Mayor de Obra. ¡Escribinos! 🚀",
     images: ["https://zarefrigeracion.com.ar/logo.png"],
     locale: "es_AR",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Z.A. Refrigeración - Servicio Técnico",
+    title: "Z.A. Refrigeración | Arranque y Arreglo en el Día",
     description:
-      "Servicio técnico profesional de aires acondicionados. Instalación, mantenimiento y reparación en el día.",
+      "❄️ Reparación e Instalación de Aires Acondicionados urgente en CABA y GBA. Técnico Oficial.",
     images: ["https://zarefrigeracion.com.ar/logo.png"],
   },
   other: {
@@ -68,7 +73,7 @@ const HVAC_BUSINESS_SCHEMA = {
   url: "https://zarefrigeracion.com.ar/",
   priceRange: "$$",
   description:
-    "Instalador de aires acondicionados y servicio técnico especialista en refrigeración. Instalación, mantenimiento y reparación por un maestro mayor de obra en Buenos Aires.",
+    "Servicio Técnico Especializado en Aire Acondicionado. Instalación, Mantenimiento y Carga de Gas en CABA y GBA por Maestro Mayor de Obra.",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Buenos Aires",

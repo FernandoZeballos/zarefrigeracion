@@ -30,7 +30,7 @@ export const FloatingWhatsApp = () => {
           : "opacity-0 translate-y-10 pointer-events-none"
       }`}
     >
-      <div className="absolute -top-3 -right-3">
+      <div className="absolute top-0 right-0">
         <span className="relative flex h-4 w-4">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
           <span className="relative inline-flex rounded-full h-4 w-4 bg-red-500 border-2 border-white dark:border-slate-900"></span>
@@ -39,7 +39,7 @@ export const FloatingWhatsApp = () => {
       <img
         src="/whatsapp.png"
         alt="WhatsApp"
-        className="w-8 h-8 object-contain drop-shadow-md"
+        className="w-10 h-10 md:w-12 md:h-12 object-contain drop-shadow-md"
       />
       <span className="absolute right-full mr-4 bg-slate-900 dark:bg-slate-800 text-white text-sm font-semibold py-2 px-4 rounded-xl opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all pointer-events-none whitespace-nowrap shadow-xl">
         ¡Hablemos ahora!

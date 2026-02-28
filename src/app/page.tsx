@@ -10,6 +10,7 @@ import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { MouseBackground } from "@/components/MouseBackground";
 import { LoadingScreen } from "@/components/LoadingScreen";
+import { FadeIn } from "@/components/FadeIn";
 
 const LOADING_DURATION_MS = 2500;
 
@@ -30,12 +31,20 @@ export default function HomePage() {
       <LoadingScreen isLoading={isLoading} />
       <MouseBackground />
       <Navbar />
-      <main className="relative z-10">
+      <main className="relative z-10 overflow-hidden">
         <Hero />
-        <BrandCarousel />
-        <Services />
-        <FAQ />
-        <Contact />
+        <FadeIn delay={100}>
+          <BrandCarousel />
+        </FadeIn>
+        <FadeIn delay={200}>
+          <Services />
+        </FadeIn>
+        <FadeIn delay={200}>
+          <FAQ />
+        </FadeIn>
+        <FadeIn delay={200}>
+          <Contact />
+        </FadeIn>
       </main>
       <Footer />
     </div>
