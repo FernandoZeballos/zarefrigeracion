@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useRef } from "react";
 
 export const MouseBackground = () => {
@@ -47,7 +49,7 @@ export const MouseBackground = () => {
     <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
       <div
         ref={blobRef}
-        className="absolute w-[600px] h-[600px] bg-cyan-400/20 dark:bg-cyan-500/10 rounded-full blur-[100px] will-change-transform"
+        className="absolute w-[600px] h-[600px] bg-transparent dark:bg-cyan-500/10 rounded-full blur-[100px] will-change-transform"
         style={{
           left: -300,
           top: -300,

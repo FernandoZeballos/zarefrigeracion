@@ -1,93 +1,165 @@
-import { ShieldCheck, Clock } from "lucide-react";
+"use client";
+
+import { Clock, Snowflake } from "lucide-react";
+import { Canvas } from "@react-three/fiber";
+import {
+  OrbitControls,
+  Environment,
+  ContactShadows,
+  Float,
+} from "@react-three/drei";
+import { AcUnit3D } from "./AcUnit3D";
+
+const TRUST_BADGES = [
+  { value: "+2 Años", label: "Experiencia" },
+  { value: "100%", label: "Garantizado" },
+  { value: "24h", label: "Respuesta" },
+  { value: "Certificado", label: "M. Mayor de Obra" },
+] as const;
 
 export const Hero = () => {
   return (
-    <div
+    <section
       id="inicio"
-      className="relative pt-40 pb-16 md:pt-48 md:pb-24 overflow-hidden"
+      aria-labelledby="hero-heading"
+      className="relative min-h-dvh lg:min-h-screen flex items-end pb-4 lg:pb-24 overflow-hidden bg-linear-to-br from-slate-100 via-blue-50 to-white dark:from-slate-950 dark:via-blue-950 dark:to-slate-900"
     >
-      {/* Background Decor */}
-      <div className="absolute top-0 right-0 -z-10 translate-x-1/2 -translate-y-1/2">
-        <div className="w-[800px] h-[800px] bg-blue-500/10 rounded-full blur-3xl opacity-50 mix-blend-multiply dark:mix-blend-lighten animate-blob"></div>
+      {/* Organic Blob / Shader Effect */}
+      <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-[10%] pointer-events-none">
+        <div className="w-[500px] h-[500px] md:w-[700px] md:h-[700px] lg:w-[800px] lg:h-[800px] rounded-full bg-linear-to-br from-blue-200/40 via-cyan-100/30 to-blue-50/10 dark:from-blue-400/40 dark:via-cyan-300/20 dark:to-white/10 blur-[80px] animate-blob"></div>
       </div>
-      <div className="absolute bottom-0 left-0 -z-10 -translate-x-1/2 translate-y-1/2">
-        <div className="w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-3xl opacity-50 mix-blend-multiply dark:mix-blend-lighten animate-blob animation-delay-2000"></div>
+      <div className="absolute top-1/3 right-[15%] pointer-events-none">
+        <div className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-full bg-linear-to-t from-blue-100/30 via-cyan-200/20 to-transparent dark:from-white/20 dark:via-blue-200/15 dark:to-transparent blur-[60px] animate-blob animation-delay-2000"></div>
+      </div>
+      <div className="absolute bottom-0 left-[20%] pointer-events-none">
+        <div className="w-[400px] h-[400px] bg-blue-300/20 dark:bg-blue-600/10 rounded-full blur-[100px]"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 text-sm font-semibold mb-6">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-            </span>
-            Servicio Técnico Especializado
+      {/* Subtle noise/grain overlay */}
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiBmaWx0ZXI9InVybCgjYSkiIG9wYWNpdHk9Ii4wNSIvPjwvc3ZnPg==')] opacity-[0.03] dark:opacity-50 pointer-events-none"></div>
+
+      {/* Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-32 lg:pt-48 pb-6 lg:pb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+          {/* Left Column: Text Content */}
+          <div className="max-w-2xl">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-100/50 dark:bg-white/10 backdrop-blur-md text-blue-700 dark:text-blue-200 text-sm font-semibold mb-8 border border-blue-200/50 dark:border-white/10 animate-fade-in">
+              <Snowflake className="w-4 h-4 text-blue-500 dark:text-cyan-400" />
+              Servicio Técnico Especializado
+            </div>
+
+            {/* Headline */}
+            <h1
+              id="hero-heading"
+              className="text-5xl md:text-7xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-8 animate-fade-in leading-[1.05]"
+            >
+              <span className="italic font-light text-slate-500 dark:text-cyan-300 block mb-2 text-3xl md:text-4xl">
+                Solución Inmediata
+              </span>
+              <span className="text-slate-900 dark:text-white">
+                Tu Aire Listo{" "}
+              </span>
+              <span className="text-blue-600 dark:text-cyan-400">
+                Hoy. Sin Vueltas.
+              </span>
+            </h1>
+
+            {/* Subtitle */}
+            <p className="text-lg md:text-xl text-slate-700 dark:text-slate-200 mb-10 leading-relaxed max-w-xl animate-fade-in delay-100 font-medium">
+              Instalación y reparación en el día para{" "}
+              <span className="text-slate-900 dark:text-white font-medium">
+                CABA y GBA
+              </span>
+              . Presupuestos transparentes y sin sorpresas. Maestro mayor de
+              obra, instalador de aires acondicionados.
+            </p>
+
+            {/* CTAs */}
+            <div className="flex flex-col gap-3 animate-slide-up delay-200">
+              <a
+                href="#contacto"
+                className="group px-8 py-4 bg-blue-600 dark:bg-white text-white dark:text-slate-900 rounded-full font-bold text-lg transition-all shadow-lg shadow-blue-500/20 dark:shadow-white/10 hover:shadow-blue-500/40 dark:hover:shadow-white/25 hover:scale-105 active:scale-95 flex items-center justify-center gap-2 sm:w-max w-full"
+              >
+                <Clock className="w-5 h-5 text-blue-200 dark:text-blue-600 group-hover:rotate-12 transition-transform" />
+                Solicitar Visita Técnica
+              </a>
+              <p className="text-sm text-slate-500 dark:text-slate-400 font-medium sm:ml-4 text-center sm:text-left">
+                <span className="inline-block w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse"></span>
+                Respondemos en 15 minutos por WhatsApp
+              </p>
+            </div>
+
+            {/* Trust Badges */}
+            <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-slate-200 dark:border-white/10 pt-8">
+              {TRUST_BADGES.map((badge) => (
+                <div key={badge.label}>
+                  <p className="font-bold text-2xl text-slate-900 dark:text-white">
+                    {badge.value}
+                  </p>
+                  <p className="text-sm font-medium text-blue-600 dark:text-cyan-400/80">
+                    {badge.label}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-linear-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-300 tracking-tight mb-7 pb-6 animate-fade-in">
-            Instalación y Servicio Técnico de Aire Acondicionado
-          </h1>
+          {/* Right Column: Interactive 3D Canvas */}
+          <div className="hidden lg:flex justify-end items-center relative h-[500px] w-full max-w-lg">
+            <div
+              className="absolute inset-0 bg-blue-500/0 hover:bg-blue-500/10 dark:hover:bg-cyan-400/10 blur-3xl transition-colors duration-700 rounded-full scale-75 
+                            pointer-events-none z-0"
+            ></div>
 
-          <h2 className="text-xl text-slate-600 dark:text-slate-400 mb-10 leading-relaxed animate-fade-in delay-100">
-            Expertos en <strong>mantenimiento, reparación e instalación</strong>{" "}
-            de equipos Split y Centrales. Servicio profesional, rápido y
-            garantizado en <strong>CABA y Zona Oeste</strong> para el máximo
-            confort de tu hogar o empresa.
-          </h2>
+            {/* The 3D Canvas wrapper */}
+            <div className="w-full h-full relative cursor-grab active:cursor-grabbing z-10">
+              <Canvas camera={{ position: [0, 0, 7.5], fov: 45 }}>
+                <ambientLight intensity={0.5} />
+                <directionalLight
+                  position={[10, 10, 5]}
+                  intensity={1}
+                  castShadow
+                />
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a
-              href="#contacto"
-              className="px-8 py-4 bg-[linear-gradient(110deg,#2563eb,45%,#60a5fa,55%,#2563eb)] bg-size-[200%_100%] animate-shine text-white rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-blue-500/50 hover:scale-105 active:scale-95 w-full sm:w-auto flex items-center justify-center gap-2 animate-slide-up delay-200"
-            >
-              <Clock className="w-5 h-5 animate-pulse" />
-              Solicitar Presupuesto
-            </a>
-            <a
-              href="#servicios"
-              className="px-8 py-4 bg-white dark:bg-slate-800 text-slate-700 dark:text-white border border-slate-200 dark:border-slate-700 hover:border-blue-500 dark:hover:border-blue-500 hover:bg-slate-50 dark:hover:bg-slate-700 rounded-full font-bold text-lg transition-all w-full sm:w-auto flex items-center justify-center gap-2 hover:scale-105 active:scale-95 animate-slide-up delay-300"
-            >
-              <ShieldCheck className="w-5 h-5" />
-              Ver Servicios
-            </a>
-          </div>
+                {/* Environment mapping for realistic reflections on the AC case */}
+                <Environment preset="city" />
 
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 text-slate-500 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800 pt-8">
-            <div>
-              <p className="font-bold text-2xl text-slate-900 dark:text-white">
-                +2 Años
-              </p>
-              <p className="text-sm font-semibold animate-pulse text-blue-600 dark:text-blue-400">
-                Experiencia
-              </p>
-            </div>
-            <div>
-              <p className="font-bold text-2xl text-slate-900 dark:text-white">
-                100%
-              </p>
-              <p className="text-sm font-semibold animate-pulse text-blue-600 dark:text-blue-400">
-                Garantizado
-              </p>
-            </div>
-            <div>
-              <p className="font-bold text-2xl text-slate-900 dark:text-white">
-                24h
-              </p>
-              <p className="text-sm font-semibold animate-pulse text-blue-600 dark:text-blue-400">
-                Respuesta
-              </p>
-            </div>
-            <div>
-              <p className="font-bold text-2xl text-slate-900 dark:text-white">
-                Certificado
-              </p>
-              <p className="text-sm font-semibold animate-pulse text-blue-600 dark:text-blue-400">
-                Matriculado
-              </p>
+                {/* Float makes the AC slowly bob up and down while rotating slightly */}
+                <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
+                  {/* We pass a slight default rotation so it looks nice on load */}
+                  <AcUnit3D rotation={[0.1, -0.6, 0]} />
+                </Float>
+
+                {/* Nice soft shadow below the floating unit */}
+                <ContactShadows
+                  position={[0, -2, 0]}
+                  opacity={0.5}
+                  scale={15}
+                  blur={2.5}
+                  far={4}
+                />
+
+                {/* Mouse controls! */}
+                <OrbitControls
+                  enableZoom={false}
+                  enablePan={false}
+                  minPolarAngle={Math.PI / 4}
+                  maxPolarAngle={Math.PI / 1.5}
+                />
+              </Canvas>
+
+              {/* Floating tech element tooltip for UI blend */}
+              <div className="absolute bottom-4 left-4 px-4 py-2 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md text-sm font-bold text-slate-800 dark:text-cyan-300 rounded-xl shadow-xl border border-white/40 dark:border-white/20 pointer-events-none">
+                <span className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-green-500 animate-ping"></span>
+                  Girá el equipo en 360°
+                </span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
