@@ -49,13 +49,13 @@ interface LoadingScreenProps {
 
 export function LoadingScreen({ isLoading }: LoadingScreenProps) {
   const [isVisible, setIsVisible] = useState(true);
-  const [isFadingOut, setIsFadingOut] = useState(false);
   const snowflakes = useMemo(() => generateSnowflakes(), []);
+
+  const isFadingOut = !isLoading;
 
   useEffect(() => {
     if (isLoading) return;
 
-    setIsFadingOut(true);
     const timeout = setTimeout(() => {
       setIsVisible(false);
     }, 700);

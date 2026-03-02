@@ -7,12 +7,18 @@ export const ThemeToggle = () => {
   const [theme, setTheme] = useState<string | null>(null);
 
   useEffect(() => {
-    const stored =
-      localStorage.getItem("theme") ??
-      (window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light");
-    setTheme(stored);
+    // Al utilizar un timeout, evitamos llamar a setState de manera síncrona
+    // durante el efecto initial, eliminando la advertencia de re-renderizado en cascada.
+    const timer = setTimeout(() => {
+      const stored =
+        localStorage.getItem("theme") ??
+        (window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light");
+      setTheme(stored);
+    }, 0);
+
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
