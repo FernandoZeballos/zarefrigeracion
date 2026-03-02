@@ -31,17 +31,10 @@ export const MouseBackground = () => {
       updatePosition(e.clientX, e.clientY);
     };
 
-    const handleTouchMove = (e: TouchEvent) => {
-      const touch = e.touches[0];
-      updatePosition(touch.clientX, touch.clientY);
-    };
-
     window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("touchmove", handleTouchMove);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("touchmove", handleTouchMove);
     };
   }, []);
 
@@ -49,7 +42,7 @@ export const MouseBackground = () => {
     <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
       <div
         ref={blobRef}
-        className="absolute w-[600px] h-[600px] bg-transparent dark:bg-cyan-500/10 rounded-full blur-[100px] will-change-transform"
+        className="absolute w-[600px] h-[600px] bg-transparent dark:bg-cyan-500/10 rounded-full blur-[60px] will-change-transform"
         style={{
           left: -300,
           top: -300,

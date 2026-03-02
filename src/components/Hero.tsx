@@ -32,19 +32,18 @@ export const Hero = () => {
       aria-labelledby="hero-heading"
       className="relative min-h-dvh lg:min-h-screen flex items-end pb-4 lg:pb-24 overflow-hidden bg-linear-to-br from-slate-100 via-blue-50 to-white dark:from-slate-950 dark:via-blue-950 dark:to-slate-900"
     >
-      {/* Organic Blob / Shader Effect */}
-      <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-[10%] pointer-events-none">
-        <div className="w-[500px] h-[500px] md:w-[700px] md:h-[700px] lg:w-[800px] lg:h-[800px] rounded-full bg-linear-to-br from-blue-200/40 via-cyan-100/30 to-blue-50/10 dark:from-blue-400/40 dark:via-cyan-300/20 dark:to-white/10 blur-[80px] animate-blob"></div>
+      <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-[10%] pointer-events-none will-change-transform">
+        <div className="w-[500px] h-[500px] lg:w-[800px] lg:h-[800px] rounded-full bg-linear-to-br from-blue-200/20 via-cyan-100/10 to-blue-50/5 dark:from-blue-400/20 dark:via-cyan-300/10 dark:to-white/5 blur-2xl md:blur-[60px] animate-blob"></div>
       </div>
-      <div className="absolute top-1/3 right-[15%] pointer-events-none">
-        <div className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-full bg-linear-to-t from-blue-100/30 via-cyan-200/20 to-transparent dark:from-white/20 dark:via-blue-200/15 dark:to-transparent blur-[60px] animate-blob animation-delay-2000"></div>
+      <div className="absolute top-1/3 right-[15%] pointer-events-none will-change-transform">
+        <div className="w-[300px] h-[300px] lg:w-[400px] lg:h-[400px] rounded-full bg-linear-to-t from-blue-100/20 via-cyan-200/10 to-transparent dark:from-white/10 dark:via-blue-200/5 dark:to-transparent blur-[30px] md:blur-[50px] animate-blob animation-delay-2000"></div>
       </div>
       <div className="absolute bottom-0 left-[20%] pointer-events-none">
-        <div className="w-[400px] h-[400px] bg-blue-300/20 dark:bg-blue-600/10 rounded-full blur-[100px]"></div>
+        <div className="w-[400px] h-[400px] bg-blue-300/10 dark:bg-blue-600/5 rounded-full blur-[50px]"></div>
       </div>
 
-      {/* Subtle noise/grain overlay */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiBmaWx0ZXI9InVybCgjYSkiIG9wYWNpdHk9Ii4wNSIvPjwvc3ZnPg==')] opacity-[0.03] dark:opacity-50 pointer-events-none"></div>
+      {/* Subtle noise/grain overlay - Reduced opacity for performance */}
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiBmaWx0ZXI9InVybCgjYSkiIG9wYWNpdHk9Ii4wNSIvPjwvc3ZnPg==')] opacity-[0.02] dark:opacity-30 pointer-events-none"></div>
 
       {/* Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-32 lg:pt-48 pb-6 lg:pb-20">
@@ -84,7 +83,7 @@ export const Hero = () => {
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col gap-3 animate-slide-up delay-200">
+            <div className="flex flex-col gap-3 animate-slide-up delay-200 mt-10">
               <a
                 href="#contacto"
                 className="group px-8 py-4 bg-blue-600 dark:bg-white text-white dark:text-slate-900 rounded-full font-bold text-lg transition-all shadow-lg shadow-blue-500/20 dark:shadow-white/10 hover:shadow-blue-500/40 dark:hover:shadow-white/25 hover:scale-105 active:scale-95 flex items-center justify-center gap-2 sm:w-max w-full"
@@ -99,13 +98,13 @@ export const Hero = () => {
             </div>
 
             {/* Trust Badges */}
-            <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-slate-200 dark:border-white/10 pt-8">
+            <div className="mt-12 flex flex-wrap justify-center sm:justify-start items-center gap-x-8 gap-y-6 sm:gap-x-12 border-t border-slate-200 dark:border-white/10 pt-8 text-center sm:text-left">
               {TRUST_BADGES.map((badge) => (
-                <div key={badge.label}>
+                <div key={badge.label} className="flex flex-col gap-1">
                   <p className="font-bold text-2xl text-slate-900 dark:text-white">
                     {badge.value}
                   </p>
-                  <p className="text-sm font-medium text-blue-600 dark:text-cyan-400/80">
+                  <p className="text-sm font-medium text-blue-600 dark:text-cyan-400">
                     {badge.label}
                   </p>
                 </div>
